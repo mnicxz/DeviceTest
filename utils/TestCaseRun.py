@@ -17,7 +17,7 @@ if __name__ == '__main__':
     result_path = os.path.join(report_path, report_title)
     TestCaseRun = TestCaseRun()
     suite = TestCaseRun.GetCase()
-    # run = unittest.TextTestRunner(verbosity=2)
+    run = unittest.TextTestRunner(verbosity=2)
     with open(result_path,'wb') as report:
         run = HTMLTestRunner(report, verbosity=2, title='BU3基本功能自动化测试', description='测试报告')
         run.run(suite)
