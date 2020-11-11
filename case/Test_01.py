@@ -22,6 +22,7 @@ class TC_Call_001(unittest.TestCase):
     #前置条件
     def setUp(self) -> None:
         self.SUBDUT_Device = ConfigGet.ConfigGet.Get_Device_Config('SUBDUT')
+        self.SUBDUT_Device.implicitly_wait(10)
         print(Oxygen.PageActivity.settingActivity.win_name)
         time.sleep(2)
 
@@ -41,6 +42,12 @@ class TC_Call_001(unittest.TestCase):
         Comment.swipe(self.SUBDUT_Device,x1=width*0.2,y1=height/10,x2=width*0.2,y2=height/3)
         Comment.xpath_click(self.SUBDUT_Device,xpath='//android.widget.ImageButton[@content-desc="向上导航"]')
         time.sleep(2)
+
+    def test_02(self):
+        print('第二条测试用例')
+
+    def test_03(self):
+        print('第三条测试用例')
 
     #收尾
     def tearDown(self) -> None:
