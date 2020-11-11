@@ -18,10 +18,13 @@ from Comment.Comment import Comment
 from utils.log import Logger
 
 class TC_Call_001(unittest.TestCase):
+    #类函数
+    @classmethod
+    def setUpClass(cls) -> None:
+        cls.SUBDUT_Device = ConfigGet.ConfigGet.Get_Device_Config('SUBDUT')
 
     #前置条件
     def setUp(self) -> None:
-        self.SUBDUT_Device = ConfigGet.ConfigGet.Get_Device_Config('SUBDUT')
         self.SUBDUT_Device.implicitly_wait(10)
         print(Oxygen.PageActivity.settingActivity.win_name)
         time.sleep(2)
@@ -53,6 +56,10 @@ class TC_Call_001(unittest.TestCase):
     def tearDown(self) -> None:
         self.SUBDUT_Device.press_keycode(3)
         print('测试结束')
+
+    @classmethod
+    def tearDownClass(cls) -> None:
+        print('类函数结束')
 
 if __name__ == '__main__':
     unittest.main()
