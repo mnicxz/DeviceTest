@@ -16,9 +16,7 @@ from page import Oxygen
 from config import ConfigGet
 from Comment.Comment import Comment
 from utils.log import Logger
-from ddt import ddt
 
-# @ddt()
 class TC_Call_001(unittest.TestCase):
 
     #前置条件
@@ -51,5 +49,5 @@ class TC_Call_001(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
-    Logger.logger.getLogger(__name__).addHandler(Logger.logger.NullHandler())
+    # Logger.logger.getLogger(TC_Call_001).addHandler(Logger.logger.NullHandler())
     # Logger('error.log', level='info').logger.error('error', unittest.main())
