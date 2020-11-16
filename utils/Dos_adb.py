@@ -32,6 +32,4 @@ class Dos_adb:
         执行adb 命令:
         '''
         print('我进来执行adb命令了')
-        r = os.popen(command)
-        for line in r.readline():
-            print(line)
+        r = os.system(command)

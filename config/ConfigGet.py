@@ -1,14 +1,17 @@
 import configparser
 from appium import webdriver
+import os
 """
     #此模块用于获取各配置文件内容并返回至case使用
 """
+current_path = os.path.abspath(os.path.join(os.getcwd(), "../"))
+Config_path = os.path.join(current_path, 'config')
 
 class ConfigGet():
     #获取设备config
     def Get_Device_Config(self,DUT_name:str):
         config = configparser.ConfigParser()
-        config.read(r'E:\LongcheerBU3Test\config\DevicesConfig.ini')
+        config.read(Config_path + '\DevicesConfig.ini')
         cops = {}
         cops["platformName"] = config.get(DUT_name, 'platformName')
         cops["platformVersion"] = config.get(DUT_name, 'platformVersion')
@@ -21,5 +24,13 @@ class ConfigGet():
         url = config.get(DUT_name,'url')
         Device = webdriver.Remote(url, cops)
         return Device
+
+    #获取设备配置
+    def Get_Config(self,section,key):
+        config = configparser.ConfigParser()
+        config.read(Config_path + '\DevicesConfig.ini')
+        print(Config_path)
+        return config.get(section,key)
+
 
 ConfigGet = ConfigGet()
